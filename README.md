@@ -1,1 +1,14 @@
 # ML_Tutorial_at_IHEP
+This tutorial runs on IHEP server lxslc.ihep.ac.cn
+# Environment
+"Python+ Scikit-learn+ PyROOT" is needed.
+
+ROOT can not be imported correctly in Py3. This is a known long-term [issue](https://root-forum.cern.ch/t/pyroot-import-error-pyinit-libpyroot/16263/8). Let's build a virtual enrironment based on py2 to solve this.
+
+## Build the virtual environment
+```shell
+#set up the py3
+export PATH=$ROOTSYS/bin:/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Python-3.6.10/bin:$PATH
+```
+
+## Install needed packages
