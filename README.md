@@ -23,6 +23,7 @@ cd virtualenv
 virtualenv py2.7 -p /usr/bin/python2.7
 #activate the virtual env
 source py2.7/bin/activate
+#setup your own ROOT. I recommend ROOT5.
 ```
 Each time your want to run the code, you should activate the environment.
 ```shell
@@ -208,6 +209,7 @@ root : root file of histograms/plots
 # To-do
 ```diff
 - the error bar in overtraining plot is correct?
+! BDTG is quite slow when n_estimators is serveral hundred
 ```
 + draw the weighted correlation matrix
 + hyper-parameter optimization
