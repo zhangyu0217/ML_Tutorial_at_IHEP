@@ -178,10 +178,12 @@ python python/classification_ML_lxslc.py
 ```
 
 # Output
+```shell
 test/
 ├ data
 ├ log
 ├ model
 ├ plot
 └ root
+```
 # To-do
