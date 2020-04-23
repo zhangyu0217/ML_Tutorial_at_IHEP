@@ -34,7 +34,7 @@ deactivate
 ```shell
 pip install sklearn
 pip install xgboost
-pip install root_numpy
+pip install uproot
 ```
 
 # Config
@@ -42,6 +42,33 @@ pip install root_numpy
 # Function
 
 ## Import module
+```python
+#python module
+import numpy as np
+import json
+import logging
+import time
+import matplotlib.pyplot as plt
+import os
+
+#sklearn module
+import sklearn
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.ensemble import AdaBoostRegressor, AdaBoostClassifier
+from sklearn.ensemble import GradientBoostingRegressor
+import xgboost as xgb
+from xgboost import plot_tree
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import f1_score,precision_score,recall_score,roc_auc_score,accuracy_score,roc_curve
+from sklearn.model_selection import GridSearchCV,validation_curve
+import joblib
+
+import ROOT
+from ROOT import *
+import uproot
+
+```
 ## Import data
 ```python
 def importData_uproot(config):
@@ -80,8 +107,12 @@ def importFromFileList(file_list, tree_name, branch_name, weight_name):
    return dataset, w
 
 ```
+
+The function "importFromFileList" returns the array of dataset and weights.
+
+The selection is hard-coding here. I will optimize it in the future.
 ## Plot variables
-  plot the distribution of variables and the correlation matrix
+  Plot the distribution of variables and the correlation matrix. This is pure ROOT-based plotting code.
 ## Training and Test
 ## Ranking
 ```python
