@@ -1,17 +1,12 @@
 # ML_Tutorial_at_IHEP
 This tutorial runs on IHEP server lxslc.ihep.ac.cn
 
- [Environment](#Environment)
-
- [Config](#Config)
-
- [Function](#Function)
-
- [Execute](#Execute)
-
- [Output](#Output)
-
- [To do](#To-do)
+# [Environment](#Environment)
+# [Config](#Config)
+# [Function](#Function)
+# [Execute](#Execute)
+# [Output](#Output)
+# [To do](#To-do)
 
 # Environment
 "Python+ Scikit-learn+ PyROOT" is needed.
@@ -51,9 +46,33 @@ pip install root_numpy
 ## Plot variables
 ## Training and Test
 ## Ranking
+```python
+def plotImportance(clf, size, outputDir,method):
+    importances = clf.feature_importances_
+    indices = np.argsort(importances)[::-1]
+
+    # Print the feature ranking
+    logging.info("Feature ranking:")
+
+    for f in range(size):
+            logging.info("%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
+
+            # Plot the feature importances of the forest
+    plt.figure()
+    plt.title("Feature importances")
+    plt.bar(range(size), importances[indices],
+            color="r", align="center")
+    plt.xticks(range(size), indices)
+    plt.xlim([-1, size])
+    plt.savefig(outputDir+"Importance_"+method+".png")
+```
 ## Hyper-parameter optimization
 
+
 # Execute
+```shell
+python python/classification_ML_lxslc.py
+```
 
 # Output
 # To-do
