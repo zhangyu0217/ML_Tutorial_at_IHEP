@@ -62,6 +62,8 @@ config={
 }
 ```
 The config is written as a dicationary in config.py and imported in the script.
+
+Currently, only methods of "BDTA, BDTG, XGBoost" are available.
 ```python
 import config
 config=config.config
@@ -186,4 +188,18 @@ test/
 ├ plot
 └ root
 ```
+data : dataset saved in .json as array
+
+log : log info
+
+model : saved model of classifier
+
+plot : plots of distrubtion/correlation/overtraing/importance/ROC
+
+root : root file of histograms/plots
 # To-do
+
+- the error bar in overtraining plot is correct?
++ draw the weighted correlation matrix
++ hyper-parameter optimization
++ add more methods like RNN, DNN
