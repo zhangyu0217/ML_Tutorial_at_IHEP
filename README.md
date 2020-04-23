@@ -6,7 +6,7 @@ This tutorial runs on IHEP server lxslc.ihep.ac.cn
 # [Function](#Function)
 # [Execute](#Execute)
 # [Output](#Output)
-# [To do](# To do)
+# [To do](#To-do)
 # Environment
 "Python+ Scikit-learn+ PyROOT" is needed.
 
@@ -50,4 +50,4 @@ pip install root_numpy
 # Execute
 
 # Output
-# To do
+# To-do
