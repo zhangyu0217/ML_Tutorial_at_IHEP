@@ -189,7 +189,7 @@ python python/classification_ML_lxslc.py
 
 # Output
 ```shell
-test/
+$outputDir/
 ├ data
 ├ log
 ├ model
