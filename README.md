@@ -1,7 +1,6 @@
 # ML_Tutorial_at_IHEP
 This tutorial runs on IHEP server lxslc.ihep.ac.cn
-
-[TOC]
+[Environment](#Environment)
 # Environment
 "Python+ Scikit-learn+ PyROOT" is needed.
 
