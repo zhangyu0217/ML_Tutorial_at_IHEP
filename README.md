@@ -24,6 +24,7 @@ virtualenv py2.7 -p /usr/bin/python2.7
 #activate the virtual env
 source py2.7/bin/activate
 ```
+Each time your want to run the code, you should activate the environment.
 ```shell
 #de-activate the env
 deactivate
@@ -36,6 +37,11 @@ pip install sklearn
 pip install xgboost
 pip install uproot
 pip install matplotlib<2.0
+```
+Copy my package to your directory
+```shell
+cp /publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir $YOUR_DIRECTORY
+
 ```
 
 # Config
@@ -61,7 +67,8 @@ config={
 'outputDir': 'test'
 }
 ```
-The config is written as a dicationary in config.py and imported in the script.
+The config is written as a dicationary in python/config.py and imported in the script.
+This is a little stupid, but it seems py2 could load json file correctly due to de-coding issue.
 
 Currently, only methods of "BDTA, BDTG, XGBoost" are available.
 ```python
@@ -143,8 +150,9 @@ The function "importFromFileList" returns the array of dataset and weights.
 
 The selection is hard-coding here. I will optimize it in the future.
 ## Plot variables
-  Plot the distribution of variables and the correlation matrix. This is pure ROOT-based plotting code.
+Plot the distribution of variables and the correlation matrix. This is pure ROOT-based plotting code.
 ## Training and Test
+pure ROOT-based code
 ## Ranking
 ```python
 def plotImportance(clf, size, outputDir,method):
