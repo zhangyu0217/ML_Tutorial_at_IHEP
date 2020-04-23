@@ -43,7 +43,45 @@ pip install root_numpy
 
 ## Import module
 ## Import data
+```python
+def importData_uproot(config):
+   signal_dataset, signal_weight = importFromFileList(config["signal_file_list"],config["signal_tree_name"],config["dump_signal_variables"],config["signal_weight_name"])
+   bkg_dataset, bkg_weight = importFromFileList(config["bkg_file_list"],config["bkg_tree_name"],config["dump_bkg_variables"],config["bkg_weight_name"])
+   print("shape of signal dataset : ")
+   print(np.shape(signal_dataset))
+   print(np.shape(bkg_dataset))
+   print(np.shape(signal_weight))
+   print(np.shape(bkg_weight))
+   return signal_dataset,signal_weight,bkg_dataset,bkg_weight
+
+def importFromFileList(file_list, tree_name, branch_name, weight_name):
+   dataset =[]
+   w = []
+   for i in range(len(file_list)):
+      dataset_tmp = []
+      t = uproot.open(file_list[i])[tree_name]
+      dict_v = t.arrays(branch_name)
+      dict_w = t.array(weight_name)
+      for j in range(len(branch_name)):
+         dataset_tmp.append(dict_v[branch_name[j]])
+      dataset_tmp=np.array(dataset_tmp)
+      dataset_tmp=dataset_tmp.transpose().tolist()
+      dataset.extend(dataset_tmp)
+      w.extend(dict_w)
+      #!!!apply the selelction!!!
+      for event in range(len(dataset)-1,-1,-1):
+         if w[event]>0.1 or w[event]<0:
+            dataset.pop(event)
+            w.pop(event)
+   dataset = np.array(dataset)
+   sumOfWeight = np.sum(w)
+   w=[1*i/sumOfWeight for i in w]
+   w = np.array(w)
+   return dataset, w
+
+```
 ## Plot variables
+  plot the distribution of variables and the correlation matrix
 ## Training and Test
 ## Ranking
 ```python
