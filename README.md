@@ -198,8 +198,9 @@ plot : plots of distrubtion/correlation/overtraing/importance/ROC
 
 root : root file of histograms/plots
 # To-do
-
+```diff
 - the error bar in overtraining plot is correct?
+```
 + draw the weighted correlation matrix
 + hyper-parameter optimization
 + add more methods like RNN, DNN
