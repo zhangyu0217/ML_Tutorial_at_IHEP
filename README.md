@@ -40,7 +40,7 @@ pip install matplotlib<2.0
 
 # Config
 ```python
-{
+config={
 'signal_file_list': ['/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/signal/hhto4l.root'], 
 'bkg_file_list': [	'/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/background/VVV.root',
 		 	'/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/background/qqZZ.root',
@@ -62,6 +62,10 @@ pip install matplotlib<2.0
 }
 ```
 The config is written as a dicationary in config.py and imported in the script.
+```python
+import config
+config=config.config
+```
 
 # Function
 
@@ -160,8 +164,13 @@ def plotImportance(clf, size, outputDir,method):
     plt.xlim([-1, size])
     plt.savefig(outputDir+"Importance_"+method+".png")
 ```
-## Hyper-parameter optimization
+The ranking is evaluated by the gain on loss function from individual variable.
 
+The gain is divided by the total gain.
+## Hyper-parameter optimization
+GridSearchCV
+
+RandomizedSearchCV
 
 # Execute
 ```shell
@@ -169,4 +178,10 @@ python python/classification_ML_lxslc.py
 ```
 
 # Output
+test/
+├ data
+├ log
+├ model
+├ plot
+└ root
 # To-do
