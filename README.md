@@ -35,9 +35,33 @@ deactivate
 pip install sklearn
 pip install xgboost
 pip install uproot
+pip install matplotlib<2.0
 ```
 
 # Config
+```python
+{
+'signal_file_list': ['/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/signal/hhto4l.root'], 
+'bkg_file_list': [	'/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/background/VVV.root',
+		 	'/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/background/qqZZ.root',
+			'/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/background/ttZ.root',
+			'/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/data/samples/background/ttbar.root'], 
+'signal_tree_name': 'quadlep', 
+'methods': ['BDTG'], 
+'bkg_selection': '', 
+'WorkDir': '/publicfs/atlas/atlasnew/higgs/hgg/guofy/ML_from_Yu_Zhang/Tutorial/WorkDir/', 
+'bkg_tree_name': 'quadlep', 
+'signal_weight_name': 'weight', 
+'dump_signal_variables': ['met', 'met_phi', 'metsumet', 'metsig', 'mZ1', 'mZ2', 'm4l', 'DphiZ1', 'DphiZ2', 'ptl1', 'ptl2', 'ptl3', 'ptl4', 'pt4l', 'ptZ1', 'ptZ2', 'Njets', 'Nbjets77'], 
+'dump_bkg_variables': ['met', 'met_phi', 'metsumet', 'metsig', 'mZ1', 'mZ2', 'm4l', 'DphiZ1', 'DphiZ2', 'ptl1', 'ptl2', 'ptl3', 'ptl4', 'pt4l', 'ptZ1', 'ptZ2', 'Njets', 'Nbjets77'], 
+'variables_name': ['MET', 'MET_{#Phi}', '#sum E_{T}', 'MET_{sig}', 'm_{Z1}', 'm_{Z2}', 'm_{4l}', '#Delta#Phi_{Z1}', '#Delta#Phi_{Z2}', 'p_{T#l 1}', 'p_{T#l 2}', 'p_{T#1 3}', 'p_{T#l 4}', 'p_{T4l}', 'p_{TZ1}', 'p_{TZ2}', 'N_{jets}', 'N_{bjets77}'], 
+'signal_selection': '', 
+'bkg_weight_name': 'weight', 
+'test_size': 0.5, 
+'outputDir': 'test'
+}
+```
+The config is written as a dicationary in config.py and imported in the script.
 
 # Function
 
@@ -64,6 +88,7 @@ from sklearn.metrics import f1_score,precision_score,recall_score,roc_auc_score,
 from sklearn.model_selection import GridSearchCV,validation_curve
 import joblib
 
+#ROOT module
 import ROOT
 from ROOT import *
 import uproot
