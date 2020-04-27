@@ -214,3 +214,9 @@ root : root file of histograms/plots
 + draw the weighted correlation matrix
 + hyper-parameter optimization
 + add more methods like RNN, DNN
+# Issues
+```diff
++ move to py3 to deal with the weight correctly
++ optimize the plotting code in "plotOvertraining"
++ check the performance BDTG vs XGBoost by tunning the hyper-parameters
+```
